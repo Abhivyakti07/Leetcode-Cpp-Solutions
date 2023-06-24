@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main()
+{
+    //Take inputs:
+    int n;
+    printf("Enter size of array:");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter values in array:");
+    for(int i =0; i<n; i++){
+        scanf("%d", &arr[i]);
+    }
+    
+    //Divide numbers:
+    int n1 = 3*n;
+    int out[n1];
+    int k = 0;
+    for(int i =0; i<n; i++){
+        int ten = arr[i]/10;
+        int mod = arr[i]%10;
+        if(ten !=0){
+            out[k] = ten;
+            out[k+1] = mod;
+            k = k+2;
+        }
+        else{
+            out[k] = mod;
+            k = k+1;
+        }  
+    }
+    
+    //Print array:
+    printf("Your array: \n");
+    for(int i=0; i<n1; i++){
+        printf("%d \t", out[i]);
+    }
+}

@@ -1,0 +1,117 @@
+TRUE FALSE FOR UNIQUE ELEMENTS
+#include <stdio.h>
+#include <stdbool.h> 
+
+int main() {
+    bool x = true;  
+    bool y = false; 
+    
+    int arr[] = {5, 3, 1, 5, 4};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int i, j;
+    for(i =0; i < n-1; i++){
+        for(j =i+1; j < n; j++){
+            if(arr[i] == arr[j]){
+                printf("%d\n",x);
+            }
+        }
+    }
+    return(0);
+}
+
+RETURN DUPLICATE ELEMENTS
+#include <stdio.h>
+#include <stdbool.h> 
+
+int main() {
+    bool x = true;  
+    bool y = false; 
+    
+    int arr[] = {5, 3, 1, 5, 4, 4};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int i, j;
+    for(i =0; i < n-1; i++){
+        for(j =i+1; j < n; j++){
+            if(arr[i] == arr[j]){
+                printf("Duplicate element: %d\n", arr[j]);    
+                printf("%d\n",x);
+            }
+        }
+    }
+    return(0);
+}
+
+
+RETURN UNIQUE ELEMENTS
+#include <stdio.h>
+#include <stdbool.h> 
+
+int main() {
+    //bool x = true;  /* equivalent to bool x = 1; */
+    //bool y = false; /* equivalent to bool y = 0; */
+    int arr[5] = {5, 3, 1, 5, 4};
+    
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int uni[n];
+    int k=0;
+    int i, j, m;
+    for(i =0; i < n-1; i++){
+        for(j =i+1; j < n; j++){
+            if(arr[i] == arr[j]){
+                for ( k = i; k < n - 1; k++)  
+                {  
+                    arr[k] = arr [k + 1];  
+                }  
+                n--;  
+                for ( k = j-1; k < n - 1; k++)  
+                {  
+                    arr[k] = arr [k + 1];  
+                }  
+                n--;  
+                
+            }
+        }
+    }
+    for(i = 0; i < n; i++)  
+    {  
+        printf (" %d \t", arr[i]);  
+    }  
+    return 0;  
+    
+}
+
+
+
+DELETE DUPLICATE ELEMENTS
+#include <stdio.h>
+#include <stdbool.h> 
+
+int main() {
+    //bool x = true;  /* equivalent to bool x = 1; */
+    //bool y = false; /* equivalent to bool y = 0; */
+    int arr[5] = {5, 3, 1, 5, 4};
+    
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int uni[n];
+    int k=0;
+    int i, j, m;
+    for(i =0; i < n-1; i++){
+        for(j =i+1; j < n; j++){
+            if(arr[i] == arr[j]){
+                for ( k = i; k < n - 1; k++)  
+                {  
+                    arr[k] = arr [k + 1];  
+                }  
+                n--;  
+                
+                
+            }
+        }
+    }
+    for(i = 0; i < n; i++)  
+    {  
+        printf (" %d \t", arr[i]);  
+    }  
+    return 0;  
+    
+}

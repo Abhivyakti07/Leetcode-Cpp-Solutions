@@ -1,0 +1,70 @@
+#include <stdio.h>
+
+int main()
+{
+    //User input for array size and values:
+    int n, m;
+    printf("Enter array size:");
+    scanf("%d %d", &n, &m);
+    //scanf("%d", &m);
+    int nums [n][m];
+    printf("Enter values:");
+    for(int i = 0; i<n; i++){
+        for(int j = 0; j<m; j++){
+            scanf("%d", &nums[i][j]);
+    }
+    }
+    printf("\n");
+    
+    int max =0;
+    //find largest element in each array.
+    for(int l = 0; l<m; l++){
+        int sum[m];
+        //make all elements of sum =-1
+        for(int i = 0; i<m; i++){
+            sum[i] = -1;
+        }
+        int k =0, index =0;
+     
+        // get max elemt form each row 
+        for(int i = 0; i<n; i++){
+            int v =0;
+            for(int j = 0; j<m; j++){
+                if(nums[i][j] >= v){
+                    v = nums[i][j];
+                    index = j;
+                }
+            }
+            sum[k] = nums[i][index];
+            k++;
+            nums[i][index] = -1;
+        }
+        
+        //print the largest elements
+        printf("Largest elements from each row: \n");
+        for(int i = 0; i<m; i++){
+            printf("%d \t", sum[i]);
+        }   
+        //take largest element in sum and assign it to p
+        int p =0;
+        for(int i = 0; i<m; i++){
+            if(sum[i] >= p ){
+                p = sum[i];
+            }
+        printf("\n");  
+        
+        // Print array:
+        printf("Array after deletion in %dth iteration: \n", l+1);
+        for(int i = 0; i<n; i++){
+            for(int j = 0; j<m; j++){
+                printf("%d \t", nums[i][j]);
+            }
+            printf("\n");
+        }
+
+        //add p to max
+        max = max+p;
+    }
+    printf("Final value %d\n", max);
+    return 0;
+}}

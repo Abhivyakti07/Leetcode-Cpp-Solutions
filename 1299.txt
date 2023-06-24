@@ -1,0 +1,37 @@
+1299:
+
+#include <stdio.h>
+
+void printArray(int a[] ,int n)
+{
+ for(int i = 0;i < n;i++)
+   printf("%d ",a[i]);
+}
+
+void replaceWithNextGreatest(int a[], int n)
+{
+    int i, j=i+1;
+    for(i=0; i<n-1; i++){
+        a[i] = a[i+1];
+        for(j = i+1; j <= n-1; j++){
+            if(a[i]<a[j]){
+                a[i] = a[j];
+            }
+        }
+    }
+    a[n-1] = -1;
+ printf("After replace the modified array is: ");
+ printArray(a , n);	
+}
+
+int main()
+{
+    int i, arr1[] = {400}; 
+    int n = sizeof(arr1) / sizeof(arr1[0]);	
+	//------------- print original array ------------------	
+	printf("The given array is :  ");
+    printArray(arr1, n);
+    printf("\n");
+    replaceWithNextGreatest(arr1, n);
+    return 0;
+}
